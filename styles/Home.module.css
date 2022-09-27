@@ -2,8 +2,29 @@
   padding: 0 2rem;
 }
 
+.header {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.header h1 {
+  font-size: 42px;
+}
+.header h3 {
+  font-size: 30px;
+  font-weight: bold;
+  color: red;
+}
+.header strike {
+  opacity: 0.5;
+  color: rgb(107, 107, 80);
+  font-size: 20px;
+}
+
 .main {
-  min-height: 100vh;
+  min-height: 80vh;
+  height: max-content;
   padding: 4rem 0;
   flex: 1;
   display: flex;
@@ -12,20 +33,70 @@
   align-items: center;
 }
 
-.footer {
-  display: flex;
-  flex: 1;
-  padding: 2rem 0;
-  border-top: 1px solid #eaeaea;
-  justify-content: center;
-  align-items: center;
+.scorebox {
+  background-color: rgb(186, 227, 239);
+  position: fixed;
+  color: #0070f3;
+  right: 0;
+  font-size: 22px;
+  margin-top: 10px;
+  margin-right: 20px;
+  padding: 5px 10px;
+  border-radius: 5px;
 }
 
-.footer a {
+.imgbox {
+  padding: 5px;
+  background-color: whitesmoke;
+  margin-top: 22px;
+  border-radius: 20%;
+  margin-right: 10px;
+}
+.ques {
+  font-size: 22px;
+  background-color: whitesmoke;
+  color: rebeccapurple;
+  padding: 1rem;
+  margin-top: 2.5rem;
+  text-decoration: underline 1px dashed;
+}
+
+.design {
+  background-color: rgb(30, 158, 137);
+  min-height: 60vh;
+  position: fixed;
+  width: 98%;
+  bottom: 0;
+  border-radius: 40% 40% 0 0;
+  box-shadow: white 5rem;
+  border: 4px whitesmoke solid;
+  justify-content: center;
+}
+
+.playButton {
+  position: fixed;
+  width: 100%;
   display: flex;
   justify-content: center;
-  align-items: center;
-  flex-grow: 1;
+  bottom: 0;
+}
+
+.playB {
+  font-size: 45px;
+  background-color: rgb(88, 207, 116);
+  padding: 10px 100px;
+  color:rgb(206, 223, 203);
+  border-radius: 5%;
+  color: rgb(34, 27, 61);
+  font-weight: bold;
+  margin-bottom: 1rem;
+  border: 2px dotted;
+}
+
+.playB:hover {
+  color: white;
+  background-color: rgb(35, 31, 63);
+  box-shadow: 10px 0px 5px white;
 }
 
 .title a {
@@ -125,5 +196,9 @@
   }
   .logo img {
     filter: invert(1);
+  }
+
+  .main {
+    background: rgb(28, 25, 35);
   }
 }

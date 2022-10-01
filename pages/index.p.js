@@ -6,13 +6,18 @@ import { useMediaQuery } from './useMediaQuery';
 import { useEffect, useState } from 'react';
 import { useRouter } from 'next/router';
 import { ApiUrl } from "./config";
+import Data from "../public/Words.json";
 
-function LoadGame(md, score, setScore) {
 
+function getRandom() {
+  return Data[Math.floor(Math.random() * Data.length)]
+}
+
+function LoadGame(md, score, setScore, Game, setGame) {
   return <>
     <div className={styles.scorebox}>
-        {score || 0}
-      </div>
+      {score || 0}
+    </div>
     <header className={styles.header}>
       <div className={styles.imgbox}>
         <Image width={50} height={50} src="https://img.icons8.com/color/48/000000/q-cute.png" />
@@ -22,7 +27,14 @@ function LoadGame(md, score, setScore) {
       </div>
     </header>
     <main className={styles.main}>
-      options
+      <div id="options">
+        {Game == undefined && <button onClick={() => setGame(getRandom())}>Load</button>}
+        {Game && Game["o"].map(v => {
+          return <p style={{ fontSize: 30 }}>
+            <input type="checkbox" style={{ width: 20, height: 30 }} onClick={() => { setGame(getRandom()) }} />
+            <span style={{ marginLeft: 10 }}>{v}</span></p>
+        })}
+      </div>
     </main>
   </>
 }
@@ -56,10 +68,10 @@ export default function Home() {
   const router = useRouter();
   const [gameState, setGameState] = useState();
   const [score, setScore] = useState();
-
+  const [Game, setGame] = useState();
   const md = useMediaQuery(960);
   if (gameState == "startgame") {
-    return LoadGame(md, score, setScore);
+    return LoadGame(md, score, setScore, Game, setGame);
   }
   return HomePage(md, setGameState);
 }
